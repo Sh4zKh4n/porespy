@@ -4,9 +4,12 @@ import matplotlib.pyplot as plt
 from skimage.morphology import skeletonize_3d
 from skimage.morphology import disk, square, ball, cube
 import scipy.ndimage as spim
-import skfmm
 from collections import namedtuple
 import imageio
+try:
+    import skfmm
+except ModuleNotFoundError:
+    print('scikit-fmm is not installed, get it from conda')
 
 
 class GeometricTortuosity():
