@@ -4,3 +4,5 @@ matplotlib
 scikit-image
 scikit-fmm
 numba
+pandas
+scikit-learn
