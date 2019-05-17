@@ -4,6 +4,7 @@ from matplotlib.patches import Rectangle
 from matplotlib import cm
 import matplotlib as mpl
 from __funcs__ import parse_vgi
+from porespy.visualization import set_mpl_style
 
 def unload_data(path_tomo, path_data, path_gradient=False):
     nx,ny,nz,im,voxel_size = parse_vgi(path_tomo)
