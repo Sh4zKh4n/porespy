@@ -31,7 +31,7 @@ def phi_radius_subset(phi, radius, rmin, voxel_size, dist=100, shift=180):
     radius0 = np.concatenate(radius[rmin:rmin+dist])*voxel_size
     return phi0, radius0
 
-def colored_plot(phi, radius, ylow=1.5, yhigh=9, gmin=0.1, gmax=0.3, save=False, path='plot.png',threshold=40):
+def colored_plot(phi, radius, ylow=1.5, yhigh=9, gmin=0.1, gmax=0.3, save=False, path='plot.png',threshold=40, a_0=0.01):
     set_mpl_style()
     result_rad = []
     result_phi = []
@@ -41,10 +41,10 @@ def colored_plot(phi, radius, ylow=1.5, yhigh=9, gmin=0.1, gmax=0.3, save=False,
         c = []
         for i,val in enumerate(test[:-1]):
             a = test[i+1]-val
-            if a < 0.1:
+            if a < a_0:
                 count += 1
                 c.append(val)
-            if a > 0.1 or i == len(test)-2:
+            if a > a_0 or i == len(test)-2:
                 if len(c) < threshold:
                     c = []
                 else:
